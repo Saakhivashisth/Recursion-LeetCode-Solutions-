@@ -9,7 +9,7 @@ class Solution {
       }  
       int res= fib(n-1) +fib(n-2);
       map.put(n,res);
-      return res;
+      return map.get(n);
        
 
     }
