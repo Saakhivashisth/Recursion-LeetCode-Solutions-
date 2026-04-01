@@ -1,16 +1,12 @@
 class Solution {
     public int fib(int n) {
-        Map<Integer,Integer> map=new HashMap<>();
-        if(map.containsKey(n)){
-            return map.get(n);
-        }
-      if(n==1||n==0){
-        return n;
-      }  
-      int res= fib(n-1) +fib(n-2);
-      map.put(n,res);
-      return map.get(n);
-       
-
+        int[] memo=new int[n+1];
+        return helper(n,memo);
+    }
+    private int helper(int n,int[] memo){
+        if (n<=1) return n;
+        if(memo[n]!=0) return memo[n];
+        memo[n]=helper(n-1,memo)+helper(n-2,memo);
+        return memo[n];
     }
 }
